@@ -3,7 +3,9 @@ class SessionsController < ApplicationController
     def logout 
         session.delete(:user_id)
         
-        redirect_back fallback_location: stylists_path
+        redirect_to stylists_path      
+
+        #fallback_location: stylists_path
       end 
     
       def new_login
@@ -13,7 +15,10 @@ class SessionsController < ApplicationController
         # find user 
         @user = User.find_by(name: params[:session][:name])
         session[:user_id] = @user.id
-        redirect_to stylists_path
+        redirect_to user_path(@user)
+        
+        # redirect_to stylists_path
+        
     
         #compare passwords
         # if @user && @user.authenticate(params[:session][:password])

@@ -3,6 +3,6 @@
 <h1>Appointments:</h1>
 <ul>
     <% @user.appointments.each do |appointment| %>
-        <li>With <%= appointment.stylist.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
+        <li>With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> </li>
     <% end %>
 </ul>

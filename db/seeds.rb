@@ -9,7 +9,12 @@
 require 'faker'
 
 
-#.destroy_all
+StylistStyle.destroy_all
+Appointment.destroy_all
+
+Style.destroy_all
+Stylist.destroy_all
+User.destroy_all
 
 
 
@@ -44,6 +49,6 @@ end
 
 5.times do
 
-    Appointment.create(stylist_id: Stylist.all.sample.id, user_id: User.all.sample.id, date: Time.zone.at(Date.current.to_time).to_datetime)
+    Appointment.create(stylist_id: Stylist.all.sample.id, user_id: User.all.sample.id, style_id: Style.all.sample.id, date: Time.zone.at(Date.current.to_time).to_datetime)
 
 end

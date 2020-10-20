@@ -1,0 +1,17 @@
+<h1>Edit Appointment</h1>
+
+
+<%= form_for @appointment do |f| %>
+
+<%= f.label :user_id, @current_user.name %>
+<%= f.hidden_field :user_id, :value => @current_user.id %>
+<br>
+Stylist Booked: <%= f.label :stylist_id, @appointment.stylist.name %>
+<%= f.hidden_field :stylist_id, :value => @appointment.stylist_id %>
+<br>
+Style Desired: <%= f.label :style_id, @appointment.style.name %>
+<%= f.hidden_field :style_id, :value => @appointment.style_id %>
+
+
+<% end %>
+
