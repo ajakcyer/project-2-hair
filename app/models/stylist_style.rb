@@ -1,0 +1,2 @@
+class StylistStyle < ApplicationRecord
+end
