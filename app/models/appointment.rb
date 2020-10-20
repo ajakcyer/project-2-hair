@@ -4,6 +4,8 @@ class Appointment < ApplicationRecord
     belongs_to :style
     has_many :reviews
 
+    validates :date, numericality: {greater_than: :Time.now}
+
 
     def stylist_name=(name)
         self.stylist = Stylist.find_by(name: name)

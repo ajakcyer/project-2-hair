@@ -26,7 +26,7 @@
         <%= ff.collection_select :style_id, @stylist.styles, :id, :name %>
         <br>
         <%= ff.label :date %>
-        <%= ff.date_field :date, min: Date.today, min: Time.now %>
+        <%= ff.datetime_field :date, min: Date.today %>
     <% end %>
     <%= f.submit "Create Appointment" %>
 <% end %>
