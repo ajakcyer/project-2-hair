@@ -31,8 +31,14 @@ require 'faker'
 # end
 
 
-100.times do 
+# 100.times do 
 
-    StylistStyle.create(stylist_id: Stylist.all.sample.id, style_id: Style.all.sample.id, price: rand(1..100), style_img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRX_Ncyqa8M7lBrXwuJzYZ9rPMKGarDzEOUGQ&usqp=CAU")
+#     StylistStyle.create(stylist_id: Stylist.all.sample.id, style_id: Style.all.sample.id, price: rand(1..100), style_img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRX_Ncyqa8M7lBrXwuJzYZ9rPMKGarDzEOUGQ&usqp=CAU")
 
-end 
+# end 
+
+5.times do
+
+    Appointment.create(stylist_id: Stylist.all.sample.id, user_id: User.all.sample.id, date: Time.zone.at(Date.current.to_time).to_datetime)
+
+end
