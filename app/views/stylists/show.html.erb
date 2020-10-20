@@ -15,7 +15,15 @@
 </ul>
 
 
+<hr>
+
 <%= form_for @stylist, url: appointments_path, method: :post do |f| %>
+
+<% if flash[:my_appointment_errors] %>
+    <% flash[:my_appointment_errors].each do |error| %>
+        <p style="color:red"><strong><%= error %></strong></p>
+    <% end %>
+<% end %><br>
 
     <%# CHANGE hidden field so we can add an appointment to stylist from the stylist#  %>
     <%= f.fields_for :appointments, @stylist.appointments.build do |ff| %>

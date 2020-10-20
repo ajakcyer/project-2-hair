@@ -9,7 +9,6 @@ class AppointmentsController < ApplicationController
         #new_appointment = Appointment.create(appointment_from_stylist_params)
         new_appointment = Appointment.create(stylist_id: params[:stylist][:appointments_attributes]["0"][:stylist_id], style_id: params[:stylist][:appointments_attributes]["0"][:style_id], date: params[:stylist][:appointments_attributes]["0"][:date])
         @current_user.appointments << new_appointment
-        byebug
         # @appointments = Appointment.all
         # @stylist = Stylist
 
@@ -17,7 +16,9 @@ class AppointmentsController < ApplicationController
             #@current_user.appointments << new_appointment
             redirect_to appointment_path(new_appointment)
         else
-            redirect_to stylists_path
+            flash[:my_appointment_errors] = new_appointment.errors.full_messages
+            
+            redirect_back fallback_location: stylists_path
         end
     end
 
