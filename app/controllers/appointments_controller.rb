@@ -2,6 +2,11 @@ class AppointmentsController < ApplicationController
     def show
         find_appointment
     end
+    
+
+    def create
+
+    end
 
 
     def edit

@@ -6,3 +6,24 @@
         <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
     <% end %>
 </ul>
+
+<h1>Styles</h1>
+<ul>
+    <% @stylist.styles.each do |style| %>
+    <li><%= style.name %></li>
+    <% end %>
+</ul>
+
+<%= form_for @stylist, url: appointments_path, method: :post do |f| %>
+    <%= f.fields_for :appointments, @stylist.appointments.build do |ff| %>
+        <%= ff.label :user_id, @current_user.name %>
+        <%= ff.hidden_field :user_id, :value => @current_user.id %>
+        <br>
+        <%= ff.label :stylist_id, @stylist.name %>
+        <%= ff.hidden_field :stylist_id, :value => @stylist.id %>
+        <br>
+        <%= ff.label :style_id %>
+        <%= ff.collection_select :style_id, @stylist.styles, :id, :name %>
+    <% end %>
+    <%= f.submit "Create Appointment" %>
+<% end %>
