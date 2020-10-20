@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :stylist_styles
   resources :styles
   resources :appointments
