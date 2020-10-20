@@ -1,0 +1,8 @@
+<h1><%= @stylist.name %></h1>
+
+<h1>Appointments:</h1>
+<ul>
+    <% @stylist.appointments.each do |appointment| %>
+        <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
+    <% end %>
+</ul>

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_004725) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "stylist_id"
+    t.integer "appointment_id"
     t.integer "rating"
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false

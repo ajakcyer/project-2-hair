@@ -1,0 +1,21 @@
+<h1>Leave a Review!</h1>
+
+
+<%= form_for @review do |f| %>
+
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+
+<%# Appointments *** FIX THIS *** %>
+    <%= f.label :appointment_id %>
+    <%#= f.collection_select :appointment_id, Appointment.all, :id, :stylist.name %>
+
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+
+    <%= f.submit %>
+
+<% end %>
