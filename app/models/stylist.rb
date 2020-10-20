@@ -5,5 +5,7 @@ class Stylist < ApplicationRecord
     has_many :stylist_styles
     has_many :styles, through: :stylist_styles
 
+    accepts_nested_attributes_for :appointments
+
     
 end

@@ -14,16 +14,19 @@
     <% end %>
 </ul>
 
+
 <%= form_for @stylist, url: appointments_path, method: :post do |f| %>
+
+    <%# CHANGE hidden field so we can add an appointment to stylist from the stylist#  %>
     <%= f.fields_for :appointments, @stylist.appointments.build do |ff| %>
-        <%= ff.label :user_id, @current_user.name %>
-        <%= ff.hidden_field :user_id, :value => @current_user.id %>
-        <br>
         <%= ff.label :stylist_id, @stylist.name %>
         <%= ff.hidden_field :stylist_id, :value => @stylist.id %>
         <br>
         <%= ff.label :style_id %>
         <%= ff.collection_select :style_id, @stylist.styles, :id, :name %>
+        <br>
+        <%= ff.label :date %>
+        <%= ff.date_field :date, min: Date.today, min: Time.now %>
     <% end %>
     <%= f.submit "Create Appointment" %>
 <% end %>
