@@ -8,7 +8,8 @@
 
 <%# Appointments *** FIX THIS *** %>
     <%= f.label :appointment_id %>
-    <%#= f.collection_select :appointment_id, Appointment.all, :id, :stylist.name %>
+    <%= f.collection_select :appointment_id, Appointment.all, :id, :stylist_name %>
+
 
     <%= f.label :rating %>
     <%= f.number_field :rating %>
