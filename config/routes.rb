@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'styles#index'
+
   resources :reviews
   resources :stylist_styles
   resources :styles
