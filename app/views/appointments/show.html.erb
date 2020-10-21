@@ -10,8 +10,7 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
 
 
 <% @appointment.reviews.each do |review| %>
-<p> 
-<strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
+<p><strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
 <p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>
 
 <p> <strong>Comment:</strong> <%= review.comment %> </p>
@@ -20,7 +19,7 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
 
 
 <%#= button_to "Edit Review", (@appointment) %>
-
+    <p>Appointment edit link "button" 😉 ---> with cancel appointment option (are you sure message bonus)</p>
 
 
 <%# if editing %>

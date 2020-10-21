@@ -1,0 +1,24 @@
+<h1> Sign-Up Page! </h1>
+
+
+<% if flash[:new_user_errors] %>
+    <% flash[:new_user_errors].each do |error| %>
+        <p style="color:red"><strong><%= error %></strong></p>
+    <% end %>
+<% end %><br>
+
+
+<%= form_for @user do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Sign-Up! :)" %>
+
+<% end %>

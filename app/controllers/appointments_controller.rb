@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
         new_appointment = Appointment.create(appointment_params)
 
         @current_user.appointments << new_appointment
-        byebug
+        
         # @appointments = Appointment.all
         # @stylist = Stylist
 
@@ -37,8 +37,6 @@ class AppointmentsController < ApplicationController
     def update
         find_appointment
         @appointment.update(appointment_params)
-
-        byebug
 
         # if @appointment.update(appointment_params)
         if @appointment.valid?

@@ -10,23 +10,18 @@ class SessionsController < ApplicationController
     
       def new_login
       end 
-    
       def login 
         # find user 
-        @user = User.find_by(name: params[:session][:name])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        @user = User.find_by(username: params[:session][:username])
         
-        # redirect_to stylists_path
-        
-    
-        #compare passwords
-        # if @user && @user.authenticate(params[:session][:password])
-        #   session[:user_id] = @user.id 
-        #   redirect_to bananas_path
-        # else 
-        #   flash[:error] = "Password or Email did not match"
-        #   redirect_to new_login_path
-        # end 
-      end 
+          if @user && @user.authenticate(params[:session][:password])
+            session[:user_id] = @user.id 
+            redirect_to user_path(@user)
+          else 
+            flash[:error] = "Password or Email did not match"
+            redirect_to new_login_path
+          end 
+      end
+      
+      
 end

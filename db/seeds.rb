@@ -19,8 +19,8 @@ User.destroy_all
 
 
 
-ajak = User.create(name: "Ajak")
-sam =  User.create(name: "Sam")
+# ajak = User.create(name: "Ajak", password ***)
+# sam =  User.create(name: "Sam", password ***)
 
 
 
@@ -47,8 +47,8 @@ end
 
 
 
-5.times do
+# 5.times do
 
-    Appointment.create(stylist_id: Stylist.all.sample.id, user_id: User.all.sample.id, style_id: Style.all.sample.id, date: Time.zone.at(Date.current.to_time).to_datetime)
+#     Appointment.create(stylist_id: Stylist.all.sample.id, user_id: User.all.sample.id, style_id: Style.all.sample.id, date: Time.zone.at(Date.current.to_time).to_datetime)
 
-end
+# end

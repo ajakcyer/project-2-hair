@@ -2,7 +2,8 @@
 
 <ul>
     <% @style.stylist_styles.each do |ss| %>
-    <li><b>Stylist: </b><%= ss.stylist.name %> - <b>Price: </b>$<%= ss.price %></li>
+    <li><b>Stylist: </b><%= ss.stylist.name %> - <b>Price: </b>$<%= ss.price %> </li>
+    <%= image_tag ss.style_img_url %><br><br>
     <% end %>
 </ul>
 
@@ -23,8 +24,7 @@
     <%= f.label :stylist_id %>
     <%= f.collection_select :stylist_id, @style.stylists, :id, :name %>
     <br>
-    <%= f.label :style_id %>
-    <%= f.hidden_field :style_id, value: @style.id %>
+        <%= f.hidden_field :style_id, value: @style.id %>
     <br>
     <%= f.label :date %>
     <%= f.datetime_field :date, min: Date.today %>
