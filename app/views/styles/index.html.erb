@@ -2,6 +2,6 @@
 
 <ul>
     <% @styles.each do |style| %>
-        <li><%= style.name %></li>
+        <li><%= link_to style.name, style_path(style) %></li>
     <% end %>
 </ul>

@@ -4,4 +4,9 @@ class StylesController < ApplicationController
         @styles = Style.all
     end
 
+    def show
+        @style = Style.find(params[:id])
+        @appointment = Appointment.new
+    end
+
 end

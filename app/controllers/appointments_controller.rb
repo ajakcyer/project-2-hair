@@ -7,10 +7,10 @@ class AppointmentsController < ApplicationController
     
 
     def create
-        
-        #new_appointment = Appointment.create(appointment_from_stylist_params)
-        new_appointment = Appointment.create(stylist_id: params[:stylist][:appointments_attributes]["0"][:stylist_id], style_id: params[:stylist][:appointments_attributes]["0"][:style_id], date: params[:stylist][:appointments_attributes]["0"][:date])
+        new_appointment = Appointment.create(appointment_params)
+
         @current_user.appointments << new_appointment
+        byebug
         # @appointments = Appointment.all
         # @stylist = Stylist
 
@@ -59,11 +59,5 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require(:appointment).permit(:user_id, :stylist_id, :style_id, :date)
     end
-
-
-    # Fix This Up...
-    # def appointment_from_stylist_params
-    #     params.require(:stylist).permit(appointments_attributes: [:stylist_id, :style_id, :date])
-    # end
 
 end

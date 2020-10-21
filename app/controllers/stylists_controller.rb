@@ -6,6 +6,7 @@ class StylistsController < ApplicationController
     
     def show
         find_stylist
+        @appointment = Appointment.new
     end 
     
     
