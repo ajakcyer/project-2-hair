@@ -2,68 +2,69 @@
 Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.strftime("%D - %r") %>
 </h1>
 
-<%# IF APPOINTMENT IS UPCOMING  %>
+
+<% if !@appointment.appointment_in_past? %>
+
 <%= button_to "Edit Appointment", edit_appointment_path(@appointment), method: :get %>
 <br>
 <%= button_to "Cancel Appointment", appointment_path(@appointment), method: :delete %>
-<%# are you sure message for cancelling? %>
-<%# END  %>
 
-<hr>
-
-<h2> <%= @appointment.user.name %>'s Review! </h2>
-
-
-<% @appointment.reviews.each do |review| %>
-<p><strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
-<p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>
-
-<p> <strong>Comment:</strong> <%= review.comment %> </p>
-<p> <strong>Rating:</strong> <%= review.rating %> </p>
-<% end %>
-
-<% review = @appointment.reviews[0] %>
-
-<% if review %>
-<%= button_to "Edit Review", edit_review_path(review), method: :get  %>
-<br>
-<%= button_to "Delete Review", review_path(review), method: :delete  %>
-  
-<% end %>
-
-
-<br><br>
-
-
-
-
-<% if @appointment.reviews.blank? %><%# || editing  %>
-
-    <% if flash[:review_errors] %>
-    <%    flash[:review_errors].each do |error| %>
-            <p style="color:red"><strong><%= error %></strong></p>
-    <% end %>
-    <% end %>
-
-
-    <p>Leave a review! :) </p>
-
-
-    <%= form_for @review do |f| %>
-
-    <%= f.label :appointment_id %>
-    <%= f.hidden_field :appointment_id, value: @appointment.id %>
-
-    <%= f.label :rating %>
-    <%= f.number_field :rating %>
-
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-
-    <%= f.submit %>
-
-    <% end  %>
+        <%# are you sure message for cancelling? %>
 
 <% end %>
 
-<%# UD - cr--  |  Leave a Review *** %>
+
+<% if @appointment.appointment_in_past? %>
+
+        <hr>
+        <h2> <%= @appointment.user.name %>'s Review! </h2>
+
+
+        <% @appointment.reviews.each do |review| %>
+            <p><strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
+            <p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>
+
+            <p> <strong>Comment:</strong> <%= review.comment %> </p>
+            <p> <strong>Rating:</strong> <%= review.rating %> </p>
+        <% end %>
+
+
+            <% review_on_page = @appointment.reviews[0] %>
+            <% if review_on_page  %>
+                <%= button_to "Edit Review", edit_review_path(review_on_page), method: :get  %>
+                <br>
+                <%= button_to "Delete Review", review_path(review_on_page), method: :delete  %>  
+            <% end %>
+
+        <br><br>
+
+
+            <% if @appointment.reviews.blank? %>
+
+                <% if flash[:review_errors] %>
+                <%    flash[:review_errors].each do |error| %>
+                        <p style="color:red"><strong><%= error %></strong></p>
+                <% end %>
+                <% end %>
+
+
+                <p>Leave a review! :) </p>
+
+                <%= form_for @review do |f| %>
+
+                <%= f.label :appointment_id %>
+                <%= f.hidden_field :appointment_id, value: @appointment.id %>
+
+                <%= f.label :rating %>
+                <%= f.number_field :rating %>
+
+                <%= f.label :comment %>
+                <%= f.text_area :comment %>
+
+                <%= f.submit %>
+
+                <% end  %>
+
+            <% end %>
+
+<% end %>
