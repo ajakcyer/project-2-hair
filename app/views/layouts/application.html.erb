@@ -15,7 +15,7 @@
       <li><a href="<%= styles_path %>">Styles</a></li>
 
       <% if @current_user %>
-        <li class="right">Welcome <%= @current_user.name %>!</li>
+        <li class="right">Welcome <%= link_to @current_user.name, user_path(@current_user) %>!</li>
         <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li>
       <% else %>
         <li class="right"><a href="<%= new_user_path %>">Sign Up!</a></li>

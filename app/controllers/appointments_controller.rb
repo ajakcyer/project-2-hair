@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController
     def show
         find_appointment
+
+        @review = Review.new
     end
     
 
@@ -25,13 +27,20 @@ class AppointmentsController < ApplicationController
 
     def edit
         find_appointment
+
+        @stylist = @appointment.stylist
     end
     def update
         find_appointment
+        @appointment.update(appointment_params)
 
-        if @appointment.update(appointment_params)
+        byebug
+
+        # if @appointment.update(appointment_params)
+        if @appointment.valid?
             redirect_to appointment_path(@appointment)
         else
+            flash[:appointment_errors] = @appointment.errors.full_messages 
             redirect_to edit_appointment_path(@appointment)
         end 
     end
@@ -48,11 +57,13 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-        params.require(:appointment).permit(:user_id, :stylist_id, :date)
+        params.require(:appointment).permit(:user_id, :stylist_id, :style_id, :date)
     end
 
-    def appointment_from_stylist_params
-        params.require(:stylist).permit(appointments_attributes: [:stylist_id, :style_id, :date])
-    end
+
+    # Fix This Up...
+    # def appointment_from_stylist_params
+    #     params.require(:stylist).permit(appointments_attributes: [:stylist_id, :style_id, :date])
+    # end
 
 end

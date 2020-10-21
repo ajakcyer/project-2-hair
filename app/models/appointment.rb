@@ -4,6 +4,9 @@ class Appointment < ApplicationRecord
     belongs_to :style
     has_many :reviews
 
+    validates :date, uniqueness: {scope: :stylist_id}
+
+    
     validate :date_cannot_be_in_the_past
 
     def date_cannot_be_in_the_past

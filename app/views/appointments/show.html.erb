@@ -3,5 +3,47 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
 </h1>
 
 
+<%= button_to "Edit Appointment", edit_appointment_path(@appointment), method: :get %>
+
+
+<h2> <%= @appointment.user.name %>'s Review! </h2>
+
+
+<% @appointment.reviews.each do |review| %>
+<p> 
+<strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
+<p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>
+
+<p> <strong>Comment:</strong> <%= review.comment %> </p>
+<p> <strong>Rating:</strong> <%= review.rating %> </p>
+<% end %>
+
+
+<% if @appointment.reviews.blank? %>
+
+    <% if flash[:review_errors] %>
+    <%    flash[:review_errors].each do |error| %>
+            <p style="color:red"><strong><%= error %></strong></p>
+    <% end %>
+    <% end %>
+
+    <p>Leave a review! :) </p>
+
+    <%= form_for @review do |f| %>
+
+    <%= f.label :appointment_id %>
+    <%= f.hidden_field :appointment_id, value: @appointment.id %>
+
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+
+    <%= f.submit %>
+
+    <% end  %>
+
+<% end %>
 
 <%# UD - cr--  |  Leave a Review *** %>

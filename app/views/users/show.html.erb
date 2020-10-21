@@ -4,8 +4,16 @@
 <h1>Appointments:</h1>
 <ul>
     <% @user.appointments.each do |appointment| %>
-        <li>With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> </li>
+        <li>With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> 
+        
+        <% if appointment.reviews.blank? %>
+            <strong> How was it? Leave a review! :) </strong>
+        <% end %>
+
+
+        </li>
     <% end %>
+
     <p>Appointment edit button ---> with cancel appointment option (are you sure message bonus)</p>
     <p>Review Statements</p>
     <p>Review Statements edit?</p>
