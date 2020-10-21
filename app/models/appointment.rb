@@ -23,5 +23,11 @@ class Appointment < ApplicationRecord
     def stylist_name
         self.stylist.name
     end
+
+
+    def appointment_in_past?
+        self.date < Time.now
+    end 
+   
     
 end

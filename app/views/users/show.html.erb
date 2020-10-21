@@ -1,27 +1,46 @@
 <h1><%= @user.name %></h1>
 
 
+
+
 <% if @current_user.id == @user.id %>
 
 
-    <h1>Appointments:</h1>
-    <ul>
-        <% @user.appointments.each do |appointment| %>
-            <li>With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> 
-            
-            <% if appointment.reviews.blank? %>
-                <strong> How was it? Leave a review! :) </strong>
+    <h1>Upcoming Appointments:</h1>
+        <ul>
+            <% @user.appointments.each do |appointment| %>
+                    <% if !appointment.appointment_in_past? %>
+                        <li>
+                        With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> 
+                        </li>
+                    <% end %>
             <% end %>
-
-
-            </li>
+        </ul>
+                                                            <% no_past_appointments = [] %>
+    <h1>Past Appointments:</h1>
+        <ul>
+        <% @user.appointments.each do |appointment| %>
+                <% if appointment.appointment_in_past? %>
+                                                            <% no_past_appointments << appointment %>
+                    <li>
+                    With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %>                    
+                        <% if appointment.reviews.blank? %>
+                            <strong> How was it? Leave a review! :) </strong>
+                        <% end %>
+                    </li>
+                <% end %>
         <% end %>
-    </ul>
-
-    <hr>
+                                                            <% if no_past_appointments.empty? %>
+                                                                    <p> None <p>
+                                                            <% end %>
+        </ul><hr>
 
 
 <% end %>
+
+
+
+
 
 
 
