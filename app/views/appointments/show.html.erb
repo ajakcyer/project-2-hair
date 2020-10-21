@@ -19,7 +19,20 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
 <% end %>
 
 
-<% if @appointment.reviews.blank? %>
+<%#= button_to "Edit Review", (@appointment) %>
+
+
+
+<%# if editing %>
+
+ReEnter Form - To Edit It 
+
+<%# end %>
+
+
+
+
+<% if @appointment.reviews.blank? %><%# || editing  %>
 
     <% if flash[:review_errors] %>
     <%    flash[:review_errors].each do |error| %>
@@ -27,7 +40,9 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
     <% end %>
     <% end %>
 
+
     <p>Leave a review! :) </p>
+
 
     <%= form_for @review do |f| %>
 

@@ -3,6 +3,10 @@ class AppointmentsController < ApplicationController
         find_appointment
 
         @review = Review.new
+
+        if @appointment.reviews.present?
+           @edit_review = @appointment.reviews[0]
+        end 
     end
     
 
