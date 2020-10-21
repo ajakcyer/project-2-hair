@@ -49,6 +49,10 @@ class AppointmentsController < ApplicationController
 
 
     def destroy
+        find_appointment
+        @appointment.destroy 
+
+        redirect_to user_path(@current_user)
     end 
 
     

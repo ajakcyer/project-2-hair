@@ -2,9 +2,14 @@
 Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.strftime("%D - %r") %>
 </h1>
 
-
+<%# IF APPOINTMENT IS UPCOMING  %>
 <%= button_to "Edit Appointment", edit_appointment_path(@appointment), method: :get %>
+<br>
+<%= button_to "Cancel Appointment", appointment_path(@appointment), method: :delete %>
+<%# are you sure message for cancelling? %>
+<%# END  %>
 
+<hr>
 
 <h2> <%= @appointment.user.name %>'s Review! </h2>
 
@@ -17,16 +22,17 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
 <p> <strong>Rating:</strong> <%= review.rating %> </p>
 <% end %>
 
+<% review = @appointment.reviews[0] %>
 
-<%#= button_to "Edit Review", (@appointment) %>
-    <p>Appointment edit link "button" 😉 ---> with cancel appointment option (are you sure message bonus)</p>
+<% if review %>
+<%= button_to "Edit Review", edit_review_path(review), method: :get  %>
+<br>
+<%= button_to "Delete Review", review_path(review), method: :delete  %>
+  
+<% end %>
 
 
-<%# if editing %>
-
-ReEnter Form - To Edit It 
-
-<%# end %>
+<br><br>
 
 
 
