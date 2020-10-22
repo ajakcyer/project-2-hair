@@ -1,14 +1,14 @@
 <h1> Sign-Up Page! </h1>
 
 
-<% if flash[:new_user_errors] %>
-    <% flash[:new_user_errors].each do |error| %>
+<% if flash[:new_stylist_errors] %>
+    <% flash[:new_stylist_errors].each do |error| %>
         <p style="color:red"><strong><%= error %></strong></p>
     <% end %>
 <% end %><br>
 
 
-<%= form_for @user do |f| %>
+<%= form_for @stylist do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -22,6 +22,3 @@
     <%= f.submit "Sign-Up! :)" %>
 
 <% end %>
-
-
-<p><%= link_to 'Sign Up', new_stylist_path %> as a stylist!</p>

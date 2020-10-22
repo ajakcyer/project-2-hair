@@ -2,12 +2,15 @@
 <p><b>Rating: </b><%=  @stylist.stylist_rating %></p>
 
 <br>
-<h1>Appointments:</h1>
-<ul>
-    <% @stylist.appointments.each do |appointment| %>
-        <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
-    <% end %>
-</ul>
+<% if @current_stylist.id == @stylist.id %>
+  
+    <h1>Appointments:</h1>
+    <ul>
+        <% @stylist.appointments.each do |appointment| %>
+            <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
+        <% end %>
+    </ul>
+<% end %>
 
 <h1>Styles</h1>
 <ul>
@@ -16,6 +19,11 @@
         <%= image_tag ss.style_img_url %><br><br>
     <% end %>
 </ul>
+
+<% if @current_stylist.id == @stylist.id %>
+    <%= link_to 'Add a New Style', new_stylist_style_path %>
+<% end %>
+
 
 
 <% reviews_here = [] %>
@@ -63,6 +71,9 @@
         <%= f.submit %>
 
     <% end %>
+
+<% elsif @current_stylist %>
+
     
 <% else %>
 <hr>

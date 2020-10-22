@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 2020_10_20_004725) do
 
   create_table "stylists", force: :cascade do |t|
     t.string "name"
-    t.integer "years_of_experience"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

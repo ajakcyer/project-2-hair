@@ -1,0 +1,16 @@
+
+
+
+<%= form_for @ss do |f| %>
+    <%= f.label :style_id %>
+    <%= f.collection_select :style_id, Style.all, :id, :name %><br><br>
+
+    <%= f.label :price %>
+    <%= f.number_field :price %><br><br>
+
+    <%= f.label :style_img_url, 'Add an Image' %>
+    <%= f.text_field :style_img_url %><br><br>
+
+
+    <%= f.submit %>
+<% end %>

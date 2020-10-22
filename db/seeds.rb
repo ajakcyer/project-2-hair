@@ -25,21 +25,21 @@ User.destroy_all
 
 
 
-5.times do
+2.times do
 
-    Stylist.create(name: Faker::FunnyName.unique.two_word_name, years_of_experience: rand(1..10))
+    Stylist.create(name: Faker::FunnyName.unique.two_word_name, username: rand(1..2), password_digest: 123)
 
 end
 
 
-50.times do
+5.times do
 
     Style.create(name: Faker::FunnyName.unique.name, description: Faker::JapaneseMedia::Naruto.unique.character)
 
 end
 
 
-100.times do 
+10.times do 
 
     StylistStyle.create(stylist_id: Stylist.all.sample.id, style_id: Style.all.sample.id, price: rand(1..100), style_img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRX_Ncyqa8M7lBrXwuJzYZ9rPMKGarDzEOUGQ&usqp=CAU")
 
