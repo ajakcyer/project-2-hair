@@ -1,5 +1,7 @@
 <h1><%= @stylist.name %></h1>
+<p><b>Rating: </b><%=  @stylist.stylist_rating %></p>
 
+<br>
 <h1>Appointments:</h1>
 <ul>
     <% @stylist.appointments.each do |appointment| %>
@@ -10,14 +12,32 @@
 <h1>Styles</h1>
 <ul>
     <% @stylist.stylist_styles.each do |ss| %>
-    <li><%= ss.style.name %> - $<%= ss.price %> </li>
+    <li><%= link_to ss.style.name, style_path(ss.style) %> - $<%= ss.price %> </li>
         <%= image_tag ss.style_img_url %><br><br>
     <% end %>
 </ul>
 
 
-<hr>
 
+
+<hr>
+<h2>Reviews</h2>
+<ul>
+    <% @stylist.appointments.each do |appointment| %>
+    <li>
+        <p><strong>User:</strong> <%= appointment.reviews[0].user.username %></p>
+        <p><strong>Style Done:</strong> <%= appointment.reviews[0].appointment.style.name %></p>
+        <p> <strong>Comment:</strong> <%= appointment.reviews[0].comment %> </p>
+        <p> <strong>Rating:</strong> <%= appointment.reviews[0].rating %> </p>
+    </li><br>
+    <% end %>
+</ul>
+
+
+
+
+
+<hr>
 <h2>Create an Appointment with <%= @stylist.name %></h2>
 
 <% if flash[:my_appointment_errors] %>

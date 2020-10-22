@@ -2,7 +2,7 @@
 
 <ul>
     <% @style.stylist_styles.each do |ss| %>
-    <li><b>Stylist: </b><%= ss.stylist.name %> - <b>Price: </b>$<%= ss.price %> </li>
+    <li><b>Stylist: </b><%= link_to ss.stylist.name, stylist_path(ss.stylist) %> - <b>Price: </b>$<%= ss.price %> </li>
     <%= image_tag ss.style_img_url %><br><br>
     <% end %>
 </ul>

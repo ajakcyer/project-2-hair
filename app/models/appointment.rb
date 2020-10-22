@@ -3,7 +3,9 @@ class Appointment < ApplicationRecord
     belongs_to :stylist
     belongs_to :style
     has_many :reviews
+    
 
+    validates :date, presence: true
     validates :date, uniqueness: {scope: :stylist_id}
 
     
@@ -19,7 +21,6 @@ class Appointment < ApplicationRecord
     def stylist_name=(name)
         self.stylist = Stylist.find_by(name: name)
     end
-
     def stylist_name
         self.stylist.name
     end
