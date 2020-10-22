@@ -19,3 +19,42 @@
 .stylist-signup-div h1 {
     margin: 10px 0px 0px 0px;
 }
+
+// SYLIST SHOW PAGE
+
+.stylist-show-div {
+    // background-color: rgb(236, 163, 154);
+    border: 20px dotted rgba(70, 184, 137, 0.582);
+    // border-style: ;
+    padding: 10px; //, 10px, 10px, 10px;
+    
+    width: 79%;
+    margin: 5px auto;
+    text-align: center;
+
+    // list-style-type: none;
+    // text-decoration: none;
+    
+}
+
+.stylist-show-div ul{
+
+    list-style-type: none;
+
+}
+
+.stylist-name {
+    font-size: 50px;
+    margin: 0px;
+    font-family: fantasy;
+}
+
+// a .add-style {
+// }
+
+.add-style {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 30px;
+    background-color: slategrey;
+}

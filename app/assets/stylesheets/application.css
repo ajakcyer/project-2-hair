@@ -20,13 +20,28 @@
     border: 1px solid black;
 } */
 
+* li {
+  font-family: fantasy;
+  font-size: 18px;
+}
+
+* h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cursive-h1 {
+  font-family: cursive;
+}
 
 
+hr {
+  margin: 0px;
+}
 
  .nav {
     text-align: center;
     width: 80%;
-    height: 40px;
+    height: 64px;
     background-color: skyblue;
     margin: 0px auto;
   }
@@ -34,6 +49,8 @@
     display: inline-block;
     margin: 0px 0px;
     padding: 11px 15px;
+    font-family: fantasy;
+    font-size: 30px;
   }
   .nav li:hover {
     background-color: rgb(18, 175, 97);

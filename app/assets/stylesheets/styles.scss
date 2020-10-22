@@ -24,15 +24,20 @@
     row-gap: 5px;
 
     width: 80%;
-    margin: 0px auto;
+    margin: 0px auto 50px;
     padding: 20px;
     background-color: lightcyan;
     justify-content: space-around;
 }
 
-//     .item {
+    .item a, .item ul a {
+        text-decoration: none;
+        color: black;
+    }
 
-//     }
+    .item ul {
+        list-style-type: none;
+    }
 
 
 // #styleshow {

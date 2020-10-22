@@ -1,4 +1,5 @@
-<h1><%= @stylist.name %></h1>
+<div class="stylist-show-div">
+<h1 class="stylist-name"><%= @stylist.name %></h1>
 <p><b>Rating: </b><%=  @stylist.stylist_rating %></p>
 
 <br>
@@ -11,7 +12,7 @@
                 <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - at - %r") %> </li>
             <% end %>
         </ul>
-
+    <hr>
     <% end %>
 <% else %>
     <% if @stylist.appointments.present? %>
@@ -22,6 +23,7 @@
                 <li><%= appointment.date.strftime("%D - at - %r") %> </li>
             <% end %>
         </ul>
+    <hr>
     <% end %>
 
 <% end %>
@@ -32,14 +34,16 @@
     <div class="item">
         <ul>
             <li><%= link_to ss.style.name, style_path(ss.style) %> - $<%= ss.price %> </li>
-                <%= image_tag ss.style_img_url %><br><br>
+                <a href="<%= style_path(ss.style) %>"><%= image_tag ss.style_img_url %></a><br><br>
         </ul>
     </div>
             <% end %>
 </div>
 <% if @current_stylist %>
     <% if @current_stylist.id == @stylist.id %>
-        <%= link_to 'Add a New Style', new_stylist_style_path %>
+    <hr>
+        <%#= link_to 'Add a New Style', new_stylist_style_path %>
+        <a class="add-style" href="<%= new_stylist_style_path %>"><div class="add-style">Add a New Style</div></a>
     <% end %>
 
 <% end %>
@@ -101,3 +105,4 @@
     <p><%= link_to 'Sign Up!', new_user_path %> or <%= link_to 'Log in!', new_login_path %> to book an appointment!</p>
 
 <% end %>
+</div>
