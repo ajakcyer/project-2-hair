@@ -10,7 +10,7 @@ class Appointment < ApplicationRecord
 
     
     validate :date_cannot_be_in_the_past
-    validate :date_cannot_be_two_hrs_before_or_after
+    validate :date_cannot_be_one_hr_before_or_after
 
     def date_cannot_be_in_the_past
       if date.present? && date < Time.now
@@ -26,16 +26,20 @@ class Appointment < ApplicationRecord
       appointments_by_my_stylist.collect do |app|
         appointment_stylist_dates << app.date
       end 
+      appointment_stylist_dates.pop
       appointment_stylist_dates
     end
 
-    def date_cannot_be_two_hrs_before_or_after
+    def date_cannot_be_one_hr_before_or_after
         booked_dates = self.stylist_dates
+        byebug
         booked = booked_dates.any? do |app_date|
-          date.between?(app_date - 2.hours, app_date + 2.hours)
+          byebug
+          date.between?(app_date - 59.minutes, app_date + 59.minutes)
         end 
+        byebug
       if date.present? && booked
-        errors.add(:date, "(time) can't be booked 2 hours before or after another appointment")
+        errors.add(:date, "(time) can't be booked 1 hour before or after another appointment")
       end
     end
 
