@@ -19,6 +19,6 @@ class StylistStylesController < ApplicationController
     private
 
     def ss_params
-        params.require(:stylist_style).permit(:style_id, :price, :style_img_url)
+        params.require(:stylist_style).permit(:style_name, :price, :style_img_url)
     end
 end
