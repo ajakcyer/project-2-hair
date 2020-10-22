@@ -18,12 +18,13 @@
 </ul>
 
 
-
-
+<% reviews_here = [] %>
+<% if reviews_here.present? %>
 <hr>
 <h2>Reviews</h2>
 <ul>
     <% @stylist.appointments.each do |appointment| %>
+            <% reviews_here << appointment.reviews[0] %>
     <li>
         <p><strong>User:</strong> <%= appointment.reviews[0].user.username %></p>
         <p><strong>Style Done:</strong> <%= appointment.reviews[0].appointment.style.name %></p>
@@ -32,30 +33,39 @@
     </li><br>
     <% end %>
 </ul>
+  
+<% end %>
 
 
 
 
+<% if @current_user %>
+  
+    <hr>
+    <h2>Create an Appointment with <%= @stylist.name %></h2>
 
-<hr>
-<h2>Create an Appointment with <%= @stylist.name %></h2>
+    <% if flash[:my_appointment_errors] %>
+        <% flash[:my_appointment_errors].each do |error| %>
+            <p style="color:red"><strong><%= error %></strong></p>
+        <% end %>
+    <% end %><br>
 
-<% if flash[:my_appointment_errors] %>
-    <% flash[:my_appointment_errors].each do |error| %>
-        <p style="color:red"><strong><%= error %></strong></p>
+    <%= form_for @appointment, url: appointments_path, method: :post do |f| %>
+
+        <%# CHANGE hidden field so we can add an appointment to stylist from the stylist#  %>
+        <%= f.label :style %>
+        <%= f.collection_select :style_id, @stylist.styles, :id, :name %>
+        <br>
+        <%= f.hidden_field :stylist_id, value: @stylist.id %>
+        <br>
+        <%= f.label :date %>
+        <%= f.datetime_field :date, min: Date.today %>
+        <%= f.submit %>
+
     <% end %>
-<% end %><br>
-
-<%= form_for @appointment, url: appointments_path, method: :post do |f| %>
-
-    <%# CHANGE hidden field so we can add an appointment to stylist from the stylist#  %>
-    <%= f.label :style %>
-    <%= f.collection_select :style_id, @stylist.styles, :id, :name %>
-    <br>
-    <%= f.hidden_field :stylist_id, value: @stylist.id %>
-    <br>
-    <%= f.label :date %>
-    <%= f.datetime_field :date, min: Date.today %>
-    <%= f.submit %>
+    
+<% else %>
+<hr>
+    <p><%= link_to 'Sign Up!', new_user_path %> or <%= link_to 'Log in!', new_login_path %> to book an appointment!</p>
 
 <% end %>

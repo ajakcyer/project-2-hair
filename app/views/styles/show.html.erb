@@ -7,27 +7,34 @@
     <% end %>
 </ul>
 
-<hr>
+
+<% if @current_user %>
+    <hr>
 
 
-<h2>Create an Appointment for <%= @style.name %></h2>
+    <h2>Create an Appointment for <%= @style.name %></h2>
 
-<% if flash[:my_appointment_errors] %>
-    <% flash[:my_appointment_errors].each do |error| %>
-        <p style="color:red"><strong><%= error %></strong></p>
+    <% if flash[:my_appointment_errors] %>
+        <% flash[:my_appointment_errors].each do |error| %>
+            <p style="color:red"><strong><%= error %></strong></p>
+        <% end %>
+    <% end %><br>
+
+    <%= form_for @appointment, url: appointments_path, method: :post do |f| %>
+
+        <%= f.label :stylist_id %>
+        <%= f.collection_select :stylist_id, @style.stylists, :id, :name %>
+        <br>
+            <%= f.hidden_field :style_id, value: @style.id %>
+        <br>
+        <%= f.label :date %>
+        <%= f.datetime_field :date, min: Date.today %>
+        <%= f.submit %>
+
     <% end %>
-<% end %><br>
 
-<%= form_for @appointment, url: appointments_path, method: :post do |f| %>
-
-    <%# CHANGE hidden field so we can add an appointment to stylist from the stylist#  %>
-    <%= f.label :stylist_id %>
-    <%= f.collection_select :stylist_id, @style.stylists, :id, :name %>
-    <br>
-        <%= f.hidden_field :style_id, value: @style.id %>
-    <br>
-    <%= f.label :date %>
-    <%= f.datetime_field :date, min: Date.today %>
-    <%= f.submit %>
+ <% else %>
+<hr>
+    <p><%= link_to 'Sign Up!', new_user_path %> or <%= link_to 'Log in!', new_login_path %> to book an appointment!</p>
 
 <% end %>
