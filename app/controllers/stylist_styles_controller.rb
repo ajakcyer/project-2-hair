@@ -12,7 +12,8 @@ class StylistStylesController < ApplicationController
         if ss.valid?
             redirect_to stylist_path(@current_stylist)
         else
-            redirect_to new_stylist_styles_path
+            flash[:hair_errors] = ss.errors.full_messages
+            redirect_to new_stylist_style_path
         end
     end
 
