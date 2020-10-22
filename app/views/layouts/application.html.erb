@@ -15,10 +15,10 @@
       <li><a href="<%= styles_path %>">Styles</a></li>
 
       <% if @current_user %>
-        <li class="right welcome">Welcome <%= link_to @current_user.name, user_path(@current_user) %>!</li>
+        <li class="right welcome"> <%= link_to "Welcome #{@current_user.name}", user_path(@current_user) %>!</li>
         <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li>
       <% elsif @current_stylist %>
-        <li class="right">Welcome <%= link_to @current_stylist.name, stylist_path(@current_stylist) %>!</li>
+        <li class="right welcome"> <%= link_to "Welcome #{@current_stylist.name}", stylist_path(@current_stylist) %>!</li>
         <li class="right"><%= link_to "Log Out", stylist_logout_path, method: :delete %></li>
       <% else %>
         <li class="right"><a href="<%= new_user_path %>">Sign Up!</a></li>

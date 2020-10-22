@@ -4,7 +4,7 @@
 
 .signup-div {
     background-color: coral;
-    width: 84%;
+    width: 80%;
     margin: 0px auto;
     text-align: center;
     
@@ -18,3 +18,39 @@
 .signup-div h1 {
     margin: 10px 0px 0px 0px;
 }
+
+
+
+// USER SHOW 
+
+.user-show-div {
+    // background-color: rgb(236, 163, 154);
+    border: 50px dashed rgba(0, 0, 128, .75);
+    padding: 10px; //, 10px, 10px, 10px;
+    
+    width: 72%;
+    margin: 0px auto;
+    text-align: center;
+
+    list-style-type: none;
+    // text-decoration: none;
+    
+}
+
+.user-show-div ul{
+
+    list-style-type: none;
+
+}
+
+.user-show-div a {
+    text-decoration: none;
+    color: darkgoldenrod;
+
+    // border: 5px dashed rgba(0, 0, 128, .75);
+}
+
+.user-show-div h1 {
+    margin: 10px 0px 0px 0px;
+}
+
