@@ -1,51 +1,54 @@
-<div id="stylesshow">
-    <div class="stylediv1"><h1><%= @style.name %></h1></div>
+<div id="styleshow">   
+    <div class="style-name"><h1><%= @style.name %></h1></div>
 
-    <div class="stylediv2">
-        <ul>
+
+<div class="container">
             <% @style.stylist_styles.each do |ss| %>
+        <div class="item">
+        <ul>
 
             <li><b>Stylist: </b><%= link_to ss.stylist.name, stylist_path(ss.stylist) %> - <b>Price: </b>$<%= ss.price %> </li>
             <%= image_tag ss.style_img_url %><br><br>
-            <% end %>
         </ul>
-    </div>
-
-    <div class="stylediv3">
-        <% if @current_user %>
-            <hr>
-
-
-            <h2>Create an Appointment for <%= @style.name %></h2>
-
-            <% if flash[:my_appointment_errors] %>
-                <% flash[:my_appointment_errors].each do |error| %>
-                    <p style="color:red"><strong><%= error %></strong></p>
-                <% end %>
-            <% end %><br>
-
-            <%= form_for @appointment, url: appointments_path, method: :post do |f| %>
-
-                <%= f.label :stylist_id %>
-                <%= f.collection_select :stylist_id, @style.stylists, :id, :name %>
-                <br>
-                    <%= f.hidden_field :style_id, value: @style.id %>
-                <br>
-                <%= f.label :date %>
-                <%= f.datetime_field :date, min: Date.today %>
-                <%= f.submit %>
-
+        </div>
             <% end %>
+</div>
 
-        <% elsif @current_stylist %>
-
-
-
-        <% else %>
+<div class="appointment">
+    <% if @current_user %>
         <hr>
-            <p><%= link_to 'Sign Up!', new_user_path %> or <%= link_to 'Log in!', new_login_path %> to book an appointment!</p>
+
+
+        <h2>Create an Appointment for <%= @style.name %></h2>
+
+        <% if flash[:my_appointment_errors] %>
+            <% flash[:my_appointment_errors].each do |error| %>
+                <p style="color:red"><strong><%= error %></strong></p>
+            <% end %>
+        <% end %><br>
+
+        <%= form_for @appointment, url: appointments_path, method: :post do |f| %>
+
+            <%= f.label :stylist_id %>
+            <%= f.collection_select :stylist_id, @style.stylists, :id, :name %>
+            <br>
+                <%= f.hidden_field :style_id, value: @style.id %>
+            <br>
+            <%= f.label :date %>
+            <%= f.datetime_field :date, min: Date.today %>
+            <%= f.submit %>
 
         <% end %>
-    </div>
 
+    <% elsif @current_stylist %>
+
+
+
+    <% else %>
+    <hr>
+        <p><%= link_to 'Sign Up!', new_user_path %> or <%= link_to 'Log in!', new_login_path %> to book an appointment!</p>
+
+    <% end %>
 </div>
+
+</div> 

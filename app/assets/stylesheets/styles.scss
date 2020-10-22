@@ -2,20 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-* {
-    border: 1px solid black;
+// * {
+//     border: 1px solid black;
+// }
+
+.style-name h1 {
+    text-align: center;
+
 }
-#stylesshow {
+
+#content {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-template-rows: min-content 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+
+    width: 80%;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: lightcyan;
+    justify-content: space-around;
+}
+
+    .item {
+
     }
-    
-    .stylediv1 {
-        grid-area: 1 / 1 / 2 / 4; 
-        // max-height: 10px;
-    }
-    .stylediv2 { grid-area: 2 / 1 / 5 / 4; }
-    .stylediv3 { grid-area: 5 / 1 / 6 / 4; }
+
+
+#styleshow {
+    // width: 80%;
+    // margin: 0px auto;
+}
