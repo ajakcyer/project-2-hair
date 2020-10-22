@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /*  Color Palettes
+
+
+#008000
+L> Green
+
+ 
+ */
+
+ .nav {
+    text-align: center;
+    width: 80%;
+    height: 40px;
+    background-color: skyblue;
+    margin: 0px auto;
+  }
+  .nav li {
+    display: inline-block;
+    margin: 0px 0px;
+    padding: 11px 15px;
+  }
+  .nav li:hover {
+    background-color: rgb(18, 175, 97);
+    border-radius: 25px;
+    transition: 1s;
+  }
+  .nav li a {
+    text-decoration: none;
+    color: rgba(194, 59, 26, 0.589);
+    font-weight: bolder;
+   }
+
+
+
+
+img {
+    /* max-height: 150px; */
+    max-width: 250px;
+  }
+
+
+  #content {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: lightcyan;
+    justify-content: space-around;
+  }
