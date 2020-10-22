@@ -1,5 +1,6 @@
+<div class="login-div">
 <h1>User Login</h1>
-
+<br>
 <% if flash[:error] %>
   <p><%= flash[:error] %></p>
 <% end %>
@@ -11,9 +12,10 @@
 
     <%= f.label :password %>
     <%= f.password_field :password %>
-
+<br><br>
   <%= f.submit "Log-in!" %>
 
 <% end %>
 
 <p><%= link_to 'Login', stylist_new_login_path %> as a stylist!</p>
+</div>

@@ -1,3 +1,41 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// USER LOGIN
+
+.login-div {
+    background-color: burlywood;
+    width: 84%;
+    margin: 0px auto;
+    text-align: center;
+    
+}
+
+.login-div a {
+    text-decoration: none;
+    color: chartreuse;
+}
+
+.login-div h1 {
+    margin: 10px 0px 0px 0px;
+}
+
+// STYLIST LOGIN
+
+.stylist-login-div {
+    background-color: indianred;
+    width: 84%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+// .stylist-login-div a {
+//     text-decoration: none;
+//     color: chartreuse;
+// }
+
+.stylist-login-div h1 {
+    margin: 10px 0px 0px 0px;
+}

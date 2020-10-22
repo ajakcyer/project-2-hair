@@ -1,3 +1,21 @@
 // Place all the styles related to the Stylists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.stylist-signup-div {
+    background-color: rgba($color: #5e448d2a, $alpha: .5);
+    width: 84%;
+    margin: 0px auto;
+    text-align: center;
+    
+}
+
+// .stylist-signup-div a {
+//     text-decoration: none;
+//     color: darkgoldenrod;
+// }
+
+.stylist-signup-div h1 {
+    margin: 10px 0px 0px 0px;
+}

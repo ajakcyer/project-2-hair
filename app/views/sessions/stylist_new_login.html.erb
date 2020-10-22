@@ -1,5 +1,6 @@
+<div class="stylist-login-div">
 <h1>Stylist Login</h1>
-
+<br>
 <% if flash[:error] %>
   <p><%= flash[:error] %></p>
 <% end %>
@@ -11,7 +12,8 @@
 
     <%= f.label :password %>
     <%= f.password_field :password %>
-
+<br><br>
   <%= f.submit "Log-in!" %>
 
 <% end %>
+</div>
