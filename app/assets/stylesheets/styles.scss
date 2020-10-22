@@ -1,3 +1,21 @@
 // Place all the styles related to the Styles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+    border: 1px solid black;
+}
+#stylesshow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    }
+    
+    .stylediv1 {
+        grid-area: 1 / 1 / 2 / 4; 
+        // max-height: 10px;
+    }
+    .stylediv2 { grid-area: 2 / 1 / 5 / 4; }
+    .stylediv3 { grid-area: 5 / 1 / 6 / 4; }
