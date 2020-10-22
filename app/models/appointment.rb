@@ -32,12 +32,12 @@ class Appointment < ApplicationRecord
 
     def date_cannot_be_one_hr_before_or_after
         booked_dates = self.stylist_dates
-        byebug
+        
         booked = booked_dates.any? do |app_date|
-          byebug
+          
           date.between?(app_date - 59.minutes, app_date + 59.minutes)
         end 
-        byebug
+        
       if date.present? && booked
         errors.add(:date, "(time) can't be booked 1 hour before or after another appointment")
       end

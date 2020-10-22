@@ -8,10 +8,20 @@
         <h1>Appointments:</h1>
         <ul>
             <% @stylist.appointments.each do |appointment| %>
-                <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - %r") %> </li>
+                <li>With <%= appointment.user.name %> at <%= appointment.date.strftime("%D - at - %r") %> </li>
             <% end %>
         </ul>
+
     <% end %>
+<% else %>
+
+        <h1>Appointments:</h1>
+        <ul>
+            <% @stylist.appointments.each do |appointment| %>
+                <li>Booked On: <%= appointment.date.strftime("%D - at - %r") %> </li>
+            <% end %>
+        </ul>
+
 <% end %>
 
 <h1>Styles</h1>

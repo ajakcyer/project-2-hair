@@ -2,6 +2,9 @@
 
 <ul>
     <% @styles.each do |style| %>
-        <li><%= link_to style.name, style_path(style) %></li>
+        <li>
+        <%= link_to style.name, style_path(style) %>
+        <%#= style.styliststyle %>
+        </li>
     <% end %>
 </ul>

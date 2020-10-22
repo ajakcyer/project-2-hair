@@ -6,7 +6,7 @@ class StylistStylesController < ApplicationController
 
     def create
         ss = StylistStyle.create(ss_params)
-        byebug
+    
         @current_stylist.stylist_styles << ss
 
         if ss.valid?

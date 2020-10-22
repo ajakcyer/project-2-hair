@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
         
         # @appointments = Appointment.all
         # @stylist = Stylist
-        byebug
+        
         if new_appointment.valid?
             #@current_user.appointments << new_appointment
             redirect_to appointment_path(new_appointment)

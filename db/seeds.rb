@@ -34,7 +34,7 @@ end
 
 5.times do
 
-    Style.create(name: Faker::FunnyName.unique.name, description: Faker::JapaneseMedia::Naruto.unique.character)
+    Style.create(name: Faker::FunnyName.unique.name)
 
 end
 

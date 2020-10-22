@@ -5,6 +5,7 @@ class StylistStyle < ApplicationRecord
     ##MAYBE SHOULD WORK SO EVERY STYLIST CAN ONLY HAVE ONE SPECIFIC STYLE
     validates :style, uniqueness: {scope: :stylist}
     validates :price, numericality: {greater_than: 1, less_than: 1000}
+    validates :price, :style_img_url, presence: true
 
     
 
