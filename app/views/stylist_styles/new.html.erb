@@ -1,9 +1,21 @@
 
+<% if flash[:hair_errors] %>
+    <% flash[:hair_errors].each do |error| %>
+        <p style="color:red"><%= error %></p>
+    <% end %>
+<% end %>
 
 
 <%= form_for @ss do |f| %>
-    <%= f.label :style_id %>
-    <%= f.collection_select :style_id, Style.all, :id, :name %><br><br>
+    <%#= f.label :style_id %>
+    <%#= f.collection_select :style_id, Style.all, :id, :name %>
+    <%= f.label :style_name %>
+    <%= f.text_field :style_name, list: "styles_autocomplete" %>
+    <datalist id="styles_autocomplete">
+        <% Style.all.each do |style| %>
+            <option value="<%= style.name %>"></option>
+        <% end %>
+    </datalist>
 
     <%= f.label :price %>
     <%= f.number_field :price %><br><br>
