@@ -14,30 +14,36 @@
 
     <% end %>
 <% else %>
-
-        <h1>Appointments:</h1>
+    <% if @stylist.appointments.present? %>
+      
+        <h1>Booked On:</h1>
         <ul>
             <% @stylist.appointments.each do |appointment| %>
-                <li>Booked On: <%= appointment.date.strftime("%D - at - %r") %> </li>
+                <li><%= appointment.date.strftime("%D - at - %r") %> </li>
             <% end %>
         </ul>
+    <% end %>
 
 <% end %>
 
 <h1>Styles</h1>
-<ul>
+<div class="container">
     <% @stylist.stylist_styles.each do |ss| %>
-    <li><%= link_to ss.style.name, style_path(ss.style) %> - $<%= ss.price %> </li>
-        <%= image_tag ss.style_img_url %><br><br>
-    <% end %>
-</ul>
-
+    <div class="item">
+        <ul>
+            <li><%= link_to ss.style.name, style_path(ss.style) %> - $<%= ss.price %> </li>
+                <%= image_tag ss.style_img_url %><br><br>
+        </ul>
+    </div>
+            <% end %>
+</div>
 <% if @current_stylist %>
     <% if @current_stylist.id == @stylist.id %>
         <%= link_to 'Add a New Style', new_stylist_style_path %>
     <% end %>
 
 <% end %>
+
 
 
 
