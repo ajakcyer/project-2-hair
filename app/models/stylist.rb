@@ -36,5 +36,15 @@ class Stylist < ApplicationRecord
 
     end
 
+    def stylist_reviews
+        review_array = []
+        self.appointments.select do |app|
+            if app.reviews[0]
+                review_array << app.reviews[0]
+            end
+        end
+        review_array
+    end
+
     
 end

@@ -69,8 +69,8 @@
             
             <br><br>
 
-        <p><strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
-        <p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>
+        <p><strong>Stylist:</strong> <%= link_to review.appointment.stylist.name, stylist_path(review.appointment.stylist) %></p>
+        <p><strong>Style Done:</strong> <%= link_to review.appointment.style.name, style_path(review.appointment.style) %></p>
         <p> <strong>Comment:</strong> <%= review.comment %> </p>
         <p> <strong>Rating:</strong> <%= review.rating %> </p>
         </li><br>
