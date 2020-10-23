@@ -54,8 +54,20 @@
     <% @user.reviews.each do |review| %>
         <li>
 
-                <% ss = review.appointment.stylist.stylist_styles.find_by(style: review.appointment.style)  %>  
-            <%= image_tag ss.style_img_url %><br><br>
+                <% ss = review.appointment.stylist.stylist_styles.find_by(style: review.appointment.style)  %>
+
+            <% if @current_user  %>
+              
+                <% if @current_user.id == @user.id %>
+                    <a href="<%= edit_review_path(review) %>"><%= image_tag ss.style_img_url %><br>Click to Edit</a>
+                <% else %>
+                    <%= image_tag ss.style_img_url %>
+                <% end %>
+            <% else %>
+                <%= image_tag ss.style_img_url %>
+            <% end %>
+            
+            <br><br>
 
         <p><strong>Stylist:</strong> <%= review.appointment.stylist.name %></p>
         <p><strong>Style Done:</strong> <%= review.appointment.style.name %></p>

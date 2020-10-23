@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
         review.update(review_params)
         if review.valid?
-            redirect_to appointment_path(review.appointment)
+            redirect_to user_path(review.user)
         else
             flash[:edit_review_errors] = review.errors.full_messages
             redirect_to edit_review_path(review)
