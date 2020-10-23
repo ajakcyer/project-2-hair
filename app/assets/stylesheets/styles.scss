@@ -44,3 +44,32 @@
 //     // width: 80%;
 //     // margin: 0px auto;
 // }
+
+
+
+.appointment{
+    background-color :skyblue;
+    //  lightcyan;
+    width: 82%;
+    margin: auto;
+
+    text-align: center;
+    align-content: center;
+
+    margin-bottom: 25px;
+}
+    .appointment-form-div select{
+        background-color :rgba(255, 236, 234, 0.945);
+    }
+    .appointment-form-div input{
+        background-color :rgba(255, 206, 200, 0.945);
+    }
+    .appointment-last-line-div input{
+        // background-color :skyblue;
+        margin-bottom: 32px;
+    }
+    .appointment-submit-div input{
+        color: lightcyan;
+        background-color: salmon;
+        // margin-bottom: 32px;
+    }
