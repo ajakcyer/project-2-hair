@@ -1,7 +1,15 @@
-<h1 class="cursive-h1">All Stylists</h1>
-
-<ul>
-    <% @stylists.each do |stylist| %>
-        <li><%= link_to stylist.name, stylist_path(stylist) %></li>
-    <% end %>
-</ul>
+<div class="ss-index">
+<h1 class="cursive-h1">Our Stylists</h1>
+<hr class="ss-space">
+<div class="ss-black-border">
+    <div class="ss-container">
+            <% @stylists.each do |stylist| %>
+        <div class="ss-item">
+            <ul>
+                <li><%= link_to stylist.name, stylist_path(stylist) %></li><br>
+            </ul>
+        </div>
+            <% end %>
+    </div>
+</div>
+</div>

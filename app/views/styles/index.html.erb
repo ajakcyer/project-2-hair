@@ -1,10 +1,18 @@
-<h1 class="cursive-h1">Index Page</h1>
-
-<ul>
-    <% @styles.each do |style| %>
-        <li>
-        <%= link_to style.name, style_path(style) %>
-        <%#= style.styliststyle %>
-        </li>
-    <% end %>
-</ul>
+<div class="ss-index">
+<h1 class="cursive-h1">Our Styles</h1>
+<hr class="ss-space">
+<div class="ss-black-border">
+    <div class="ss-container">
+            <% @styles.each do |style| %>
+        <div class="ss-item">
+            <ul>
+                <li>
+                <%= link_to style.name, style_path(style) %>
+                <%#= style.styliststyle %>
+                </li>
+            </ul>
+        </div>
+            <% end %>
+    </div>
+</div>
+</div>
