@@ -1,28 +1,32 @@
-<h1>
-Edit Your Appointment With <%= link_to @appointment.stylist.name, stylist_path(@appointment.stylist) %> at <%= @appointment.date.strftime("%D - %r") %>
-</h1>
+<div class="app-edit-div">
+    <h1>Edit Your Appointment With <%= @appointment.stylist.name %> <br> <%= @appointment.date.strftime("%D - %r") %></h1>
 
 
-    <% if flash[:appointment_errors] %>
-    <%    flash[:appointment_errors].each do |error| %>
-            <p style="color:red"><strong><%= error %></strong></p>
+        <% if flash[:appointment_errors] %>
+        <%    flash[:appointment_errors].each do |error| %>
+                <p style="color:red"><strong><%= error %></strong></p>
+        <% end %>
+        <% end %>
+
+    <%= form_for @appointment do |f| %>
+
+
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
+    <%= f.hidden_field :stylist_id, :value => @appointment.stylist_id %>
+
+    <span class="left">
+        <%= f.label :style_id %>
+        <%= f.collection_select :style_id, @stylist.styles, :id, :name %>
+        <%# f.hidden_field :style_id, :value => @appointment.style_id %>
+    </span>
+    <span class="right">
+        <%= f.label :date %>
+        <%= f.datetime_field :date, min: Date.today %>
+    </span>
+
+    <br><br>
+    <div class="app-edit-submit"><%= f.submit %></div>
+
     <% end %>
-    <% end %>
 
-<%= form_for @appointment do |f| %>
-
-
-<%= f.hidden_field :user_id, :value => @current_user.id %>
-<%= f.hidden_field :stylist_id, :value => @appointment.stylist_id %>
-
-<%= f.label :style_id %>
-<%= f.collection_select :style_id, @stylist.styles, :id, :name %>
-<%# f.hidden_field :style_id, :value => @appointment.style_id %>
-
-<%= f.label :date %>
-<%= f.datetime_field :date, min: Date.today %>
-<br><br>
-<%= f.submit %>
-
-<% end %>
-
+</div>

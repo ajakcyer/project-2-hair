@@ -1,3 +1,37 @@
 // Place all the styles related to the Appointments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.app-edit-div {
+    text-align: center;
+    width: 81%;
+    margin: 0px auto;
+    border: 13px dashed rgba(206, 174, 85, 0.753);
+    background-color: rgba(223, 153, 153, 0.274);
+    
+}
+
+.app-edit-div h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    
+}
+
+// .app-edit-div * {
+//     border: 1px solid black;
+// }
+
+.app-edit-div .left {
+    text-align: left;
+    margin-right: 20px;
+}
+
+.app-edit-div .right {
+    text-align: right;
+    margin-left: 20px;
+}
+
+.app-edit-submit input {
+    margin-right: 35px;
+    margin-bottom: 25px;
+}
