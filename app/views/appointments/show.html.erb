@@ -1,13 +1,20 @@
+<div class="appointment-show-div">
+
+
 <h1>
-Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.strftime("%D - %r") %>
+Your Appointment With <%= link_to @appointment.stylist.name, stylist_path(@appointment.stylist) %> at <%= @appointment.date.strftime("%D - %r") %>
 </h1>
 
 
 <% if !@appointment.appointment_in_past? %>
 
+<div id="appointment-button-to">
+
 <%= button_to "Edit Appointment", edit_appointment_path(@appointment), method: :get %>
 <br>
 <%= button_to "Cancel Appointment", appointment_path(@appointment), method: :delete %>
+
+</div>
 
         <%# are you sure message for cancelling? %>
 
@@ -68,3 +75,6 @@ Your Appointment With <%= @appointment.stylist.name %> at <%= @appointment.date.
             <% end %>
 
 <% end %>
+
+
+</div>
