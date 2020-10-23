@@ -1,3 +1,83 @@
 // Place all the styles related to the StylistStyles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// .ss-index * {
+//     border: 1px solid black;
+// }
+
+.ss-index {
+    // text-align: center;
+    width: 80%;
+    // border: 1px solid black;
+    margin: 0px auto;
+}
+
+.ss-index h1 {
+    text-align: center;
+    background-color: lightsteelblue;
+}
+
+// .ss-index ul {
+//     list-style-type: none;
+//     text-align: center;
+// }
+
+// .ss-index ul li {
+//     display: inline-block;
+// }
+
+// .ss-index ul a:hover {
+//     // line-height: 50px;
+//     // height: 50px;
+//     width: 50px;
+//     border-radius: 50%;
+//     background-color: azure;
+//     transition-duration: 1s;
+//     // transition-delay: .5s;
+// }
+
+
+.ss-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+
+    width: 80%;
+    margin: 0px auto;
+    padding: 20px;
+    // background-color: lightcyan;
+    justify-content: space-around;
+    
+}
+
+    .ss-item a, .item ul a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .ss-item ul {
+        text-align: center;
+        list-style-type: none;
+        
+    }
+    
+    .ss-item li:hover {
+        
+        background-color: rgba(250, 128, 114, 0.384);
+        transition-duration: 1s;
+        border-radius: 50%;
+    }
+    
+
+    .ss-black-border {
+        border-bottom: 1px solid black;
+        // border-left: 1px solid black;
+        // border-right: 1px solid black;
+    }
+
+    .ss-space {
+        margin-bottom: 5px;
+    }
