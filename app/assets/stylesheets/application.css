@@ -53,7 +53,7 @@ hr {
     font-size: 30px;
   }
   .nav li:hover {
-    background-color: rgb(18, 175, 97);
+    background-color: rgba(18, 175, 96, 0.493);
     border-radius: 25px;
     transition: 1s;
   }

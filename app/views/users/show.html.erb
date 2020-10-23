@@ -15,7 +15,7 @@
             <% @user.appointments.each do |appointment| %>
                     <% if !appointment.appointment_in_past? %>
                         <li>
-                        With <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> 
+                        <%= link_to appointment.style.name, style_path(appointment.style) %> with <%= link_to appointment.stylist.name, stylist_path(appointment.stylist) %> at <%= link_to appointment.date.strftime("%D - %r"), appointment_path(appointment) %> 
                         </li>
                     <% end %>
             <% end %>
@@ -73,7 +73,7 @@
         <p><strong>Style Done:</strong> <%= link_to review.appointment.style.name, style_path(review.appointment.style) %></p>
         <p> <strong>Comment:</strong> <%= review.comment %> </p>
         <p> <strong>Rating:</strong> <%= review.rating %> </p>
-        </li><br>
+        </li><hr>
     <% end %>
     </ul>
 
