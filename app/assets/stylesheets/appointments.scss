@@ -35,3 +35,24 @@
     margin-right: 35px;
     margin-bottom: 25px;
 }
+
+// *{
+//     border: 
+// }
+
+.appointment-show-div{
+
+    background-color: rgba($color: #5e448dbd, $alpha: .5);
+    width: 84%;
+    margin: 0px auto;
+    text-align: center;
+
+}
+    .appointment-show-div a{
+        text-decoration: none;
+        color: rgba(197, 70, 56, 0.568);
+    }
+    #appointment-button-to input{
+        color: white;
+        background-color: salmon;
+    }
