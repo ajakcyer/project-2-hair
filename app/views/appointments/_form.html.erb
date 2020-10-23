@@ -11,19 +11,17 @@ Edit Your Appointment With <%= link_to @appointment.stylist.name, stylist_path(@
 
 <%= form_for @appointment do |f| %>
 
-<%= f.label :user_id, @current_user.name %>
+
 <%= f.hidden_field :user_id, :value => @current_user.id %>
-<br>
-<%= f.label :stylist_id, @appointment.stylist.name %>
 <%= f.hidden_field :stylist_id, :value => @appointment.stylist_id %>
-<br>
-<%= f.label :style_id, @appointment.style.name %>
+
+<%= f.label :style_id %>
 <%= f.collection_select :style_id, @stylist.styles, :id, :name %>
 <%# f.hidden_field :style_id, :value => @appointment.style_id %>
-<br>
+
 <%= f.label :date %>
 <%= f.datetime_field :date, min: Date.today %>
-
+<br><br>
 <%= f.submit %>
 
 <% end %>
